@@ -23,7 +23,7 @@
         <?php echo $__env->yieldContent('template_linked_fonts'); ?>
 
         
-        <link href="<?php echo e(mix('/css/app.css')); ?>" rel="stylesheet">
+        <link href="<?php echo e(url(mix('/css/app.css'))); ?>" rel="stylesheet">
 
         <?php echo $__env->yieldContent('template_linked_css'); ?>
 
@@ -75,7 +75,7 @@
         </div>
 
         
-        <script src="<?php echo e(mix('/js/app.js')); ?>"></script>
+        <script src="<?php echo e(url(mix('/js/app.js'))); ?>"></script>
 
         <?php if(config('settings.googleMapsAPIStatus')): ?>
             <?php echo HTML::script('//maps.googleapis.com/maps/api/js?key='.config("settings.googleMapsAPIKey").'&libraries=places&dummy=.js', array('type' => 'text/javascript')); ?>
