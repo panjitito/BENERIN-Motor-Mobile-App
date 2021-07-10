@@ -29,21 +29,8 @@ Homestead.json
 
 ### Master Configs ###
 .env
-composer.lock
-package-lock.json
-yarn.lock
 
 ### Assets ###
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/storage/debugbar
-/storage/framework
-/storage/logs
-/storage/users
-packages/
-.phpunit.result.cache
 .env.backup
 
 # Debug Files
