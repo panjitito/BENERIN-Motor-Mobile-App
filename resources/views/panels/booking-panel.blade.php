@@ -11,112 +11,102 @@
 
 <div class="card">
     <div class="card-header @role('admin', true) bg-secondary text-white @endrole">
-
         Booking Service
-
-        @role('admin', true)
-            <span class="pull-right badge badge-primary" style="margin-top:4px">
-                Admin Access
-            </span>
-        @else
-            <span class="pull-right badge badge-warning" style="margin-top:4px">
-                User Access
-            </span>
-        @endrole
-
     </div>
     <div class="card-body">
-        <h2 class="lead">
-            {{ trans('auth.loggedIn') }}
-        </h2>
-        <p>
-            <em>Thank you</em> for checking this project out. <strong>Please remember to star it!</strong>
-        </p>
-        <p>
-            <iframe src="https://ghbtns.com/github-btn.html?user=jeremykenedy&repo=laravel-auth&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px" style="margin: 0px 0 -3px .5em;"></iframe>
-        </p>
-        <p>
-            This page route is protected by <code>activated</code> middleware. Only accounts with activated emails are able pass this middleware.
-        </p>
-        <p>
-            <small>
-                Users registered via Social providers are by default activated.
-            </small>
-        </p>
+        <form method="POST" action="/booking">
+            @csrf
 
-        <hr>
+            <div class="form-group row">
+                <label for="name" class="col-md-4 col-form-label text-md-right">Merk</label>
 
-        <p>
-            You have
-                <strong>
-                    @role('admin')
-                       Admin
-                    @endrole
-                    @role('user')
-                       User
-                    @endrole
-                </strong>
-            Access
-        </p>
+                <div class="col-md-6">
+                    <select id="merk" name="merk" class="form-control" required autofocus>
+                        <option value="SUZUKI">SUZUKI</option>
+                        <option value="HONDA">HONDA</option>
+                        <option value="YAMAHA">YAMAHA</option>
+                    </select>
 
-        <hr>
+                    @if ($errors->has('merk'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('merk') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
 
-        <p>
-            You have access to {{ $levelAmount }}:
-            @level(5)
-                <span class="badge badge-primary margin-half">5</span>
-            @endlevel
+            <div class="form-group row">
+                <label for="varian" class="col-md-4 col-form-label text-md-right">Tipe/Varian</label>
 
-            @level(4)
-                <span class="badge badge-info margin-half">4</span>
-            @endlevel
+                <div class="col-md-6">
+                    <input id="varian" type="text" class="form-control{{ $errors->has('varian') ? ' is-invalid' : '' }}" name="varian" value="{{ old('varian') }}" required autofocus>
 
-            @level(3)
-                <span class="badge badge-success margin-half">3</span>
-            @endlevel
+                    @if ($errors->has('varian'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('varian') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
 
-            @level(2)
-                <span class="badge badge-warning margin-half">2</span>
-            @endlevel
+            <div class="form-group row">
+                <label for="nopol" class="col-md-4 col-form-label text-md-right">Nomor Polisi</label>
 
-            @level(1)
-                <span class="badge badge-default margin-half">1</span>
-            @endlevel
-        </p>
+                <div class="col-md-6">
+                    <input id="nopol" type="text" class="form-control{{ $errors->has('nopol') ? ' is-invalid' : '' }}" name="nopol" value="{{ old('nopol') }}" required autofocus>
 
-        @role('admin')
+                    @if ($errors->has('nopol'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('nopol') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
 
-            <hr>
+            <div class="form-group row">
+                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-            <p>
-                You have permissions:
-                @permission('view.users')
-                    <span class="badge badge-primary margin-half margin-left-0">
-                        {{ trans('permsandroles.permissionView') }}
-                    </span>
-                @endpermission
+                <div class="col-md-6">
+                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
-                @permission('create.users')
-                    <span class="badge badge-info margin-half margin-left-0">
-                        {{ trans('permsandroles.permissionCreate') }}
-                    </span>
-                @endpermission
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
 
-                @permission('edit.users')
-                    <span class="badge badge-warning margin-half margin-left-0">
-                        {{ trans('permsandroles.permissionEdit') }}
-                    </span>
-                @endpermission
+            <div class="form-group row">
+                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                @permission('delete.users')
-                    <span class="badge badge-danger margin-half margin-left-0">
-                        {{ trans('permsandroles.permissionDelete') }}
-                    </span>
-                @endpermission
+                <div class="col-md-6">
+                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
-            </p>
+                    @if ($errors->has('password'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
 
-        @endrole
+            <div class="form-group row">
+                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
+                <div class="col-md-6">
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                </div>
+            </div>
+
+            <div class="form-group row mb-4">
+                <div class="col-md-6 offset-md-4">
+                    <button type="submit" class="btn btn-primary">
+                        Booking
+                    </button>
+                </div>
+            </div>
+
+        </form>
     </div>
 </div>
