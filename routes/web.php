@@ -56,6 +56,9 @@ Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep', 'chec
     //  Homepage Route - Redirect based on user role is in controller.
     Route::get('/home', ['as' => 'public.home',   'uses' => 'App\Http\Controllers\UserController@index']);
 
+    // Booking & Service History
+    Route::get('/history', ['uses' => 'App\Http\Controllers\BookingController@history'])->name('history');
+
     // Show users profile - viewable by other users.
     Route::get('profile/{username}', [
         'as'   => '{username}',

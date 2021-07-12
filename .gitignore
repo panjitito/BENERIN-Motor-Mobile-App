@@ -32,8 +32,7 @@ Homestead.json
 
 ### Assets ###
 .env.backup
-storage/framework/*
-storage/logs/*
+storage/*
 
 # Debug Files
 npm-debug.log

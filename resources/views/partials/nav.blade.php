@@ -98,7 +98,7 @@
                     </li>
                     <div class="dropdown-divider"></div>
                     <li class="nav-item dropdown">
-                    <a href="/history">History</a>
+                    <a href="{{ route('history') }}">History</a>
                     </li>
                 @endguest
             </ul>
