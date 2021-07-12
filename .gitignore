@@ -36,3 +36,7 @@ Homestead.json
 # Debug Files
 npm-debug.log
 yarn-error.log
+
+# Sessions and Logs
+/storage/framework/sessions/*
+/storage/logs/*
