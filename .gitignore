@@ -39,4 +39,5 @@ yarn-error.log
 
 # Sessions and Logs
 /storage/framework/sessions/*
+/storage/framework/views/*
 /storage/logs/*
