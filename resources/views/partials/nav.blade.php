@@ -92,6 +92,14 @@
                             </form>
                         </div>
                     </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item dropdown">
+                        <a href="/home">Booking</a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item dropdown">
+                    <a href="/history">History</a>
+                    </li>
                 @endguest
             </ul>
         </div>
